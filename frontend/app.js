@@ -1,8 +1,8 @@
 import User from "./User.js";
 
 
-window.addEventListener("load", (){
+window.addEventListener("load", function(){
     let user = new User;
 
-    user.renderUser()
+    user.getUser()
 })
