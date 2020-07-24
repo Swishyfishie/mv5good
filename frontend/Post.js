@@ -1,9 +1,11 @@
 class Post {
-    constructor(event, location, date, time){
+    constructor(event, location, ticketPrice, date, time, moreInfo){
         this.event = event
         this.location = location
+        this.ticketPrice = ticketPrice
         this.date = date
         this.time = time
+        this.moreInfo = moreInfo
 
         this.postConcert = function(){
             fetch("http://localhost:3000/concerts", {
@@ -16,16 +18,25 @@ class Post {
                     concert:{
                         event: this.event,
                         location: this.location,
-                        ticket_price: 210000000,
+                        ticket_price: this.ticketPrice,
                         date:this.date,
                         time:this.time,
-                        more_info: "No Info required",
+                        more_info: this.moreInfo,
                         admin_id:"1"
                     }
                 })
               })
                 .then(response => response.json())
-                .then(console.log)
+                .then(data => {
+                    console.log(data)    
+
+
+                    for(let [k,v] of Object.entries(data)){
+                        document.querySelector(".concertList").append(k + " ")
+                        document.querySelector(".concertList").append(v + " ")
+                    }
+                    
+                })
         } 
     }
 

@@ -15,8 +15,8 @@ class ConcertsController < ApplicationController
 
   # POST /concerts
   def create
+    # byebug
     @concert = Concert.new(concert_params)
-
     if @concert.save
       render json: @concert, status: :created, location: @concert
     else

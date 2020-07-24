@@ -18,7 +18,7 @@ class User {
 
         function _renderConcerts(concerts){
             let list = document.querySelector(".concertList")
-            let acceptedArgs = ['date', 'location','time','event']
+            let acceptedArgs = ['date', 'location','ticket_price','time','event','more_info']
             let statsArr = []
             concerts.map(e=>{
                 for(let [key, val] of Object.entries(e)){
