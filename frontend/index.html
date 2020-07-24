@@ -8,7 +8,17 @@
 <body>
     
     <div class="concertList"></div>
-    <input type="submit" value="Add Concert" id="addConcert">
+    <form style="display:flex;flex-direction:column;width:200px;">
+        <label for="event">Event</label>
+        <input type="text" name="event" id="event">
+        <label for="event">Location</label>
+        <input type="text" name="location" id="location">
+        <label for="event">Date</label>
+        <input type="text" name="date" id="date">
+        <label for="event">Time</label>
+        <input type="text" name="time" id="time">
+        <input type="submit" value="Add Concert" id="addConcert">
+    </form>
     <script src="app.js"></script>
     <script src="User.js"></script>
 
