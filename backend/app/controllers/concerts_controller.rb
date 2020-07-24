@@ -46,6 +46,6 @@ class ConcertsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def concert_params
-      params.require(:concert).permit(:event, :location, :ticket_price, :date, :time, :more_info)
+      params.require(:concert).permit(:event, :location, :ticket_price, :date, :time, :more_info, :admin_id)
     end
 end
