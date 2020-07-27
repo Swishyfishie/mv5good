@@ -28,14 +28,22 @@ class Post {
               })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)    
-
-
-                    for(let [k,v] of Object.entries(data)){
-                        document.querySelector(".concertList").append(k + " ")
-                        document.querySelector(".concertList").append(v + " ")
+                    let list = document.querySelector(".concertList")
+                    let acceptedArgs = ['date', 'location','ticket_price','time','event','more_info']
+                    let eventDiv = document.createElement("DIV")
+                    eventDiv.classList = "event"
+                    console.log(data)
+                    list.appendChild(eventDiv)
+                    for(let v in data){
+                            if(acceptedArgs.includes(v)){
+                                
+                                eventDiv.innerHTML += `
+                                
+                                <p>${v} : ${data[v]}</p> 
+                                `
+                            }
+                        
                     }
-                    
                 })
         } 
     }
